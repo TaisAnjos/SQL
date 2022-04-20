@@ -1,0 +1,104 @@
+EXERCICÍO 1
+
+CREATE DATABASE db_rh;
+USE db_rh;
+create table tb_colaboradores(
+id BIGINT AUTO_INCREMENT,
+nome VARCHAR (255),
+cargo VARCHAR (25),
+cep VARCHAR(30),
+idade INT,
+salario INT,
+
+PRIMARY KEY (id)
+);
+SELECT * FROM tb_colaboradores;
+INSERT INTO tb_colaboradores (nome, cargo, cep, idade, salario)
+VALUES ("Fernando", "Assistente", "079658254", 28, 1900);
+SELECT * FROM tb_colaboradores WHERE salario>2000;
+SELECT * FROM tb_colaboradores WHERE salario<2000;
+
+EXERCICÍO 2	
+
+
+CREATE DATABASE db_e_commerce;
+USE db_e_commerce;
+CREATE TABLE tb_produtos (
+id BIGINT AUTO_INCREMENT,
+nome VARCHAR (100),
+preco INT,
+estoque INT,
+fabricante VARCHAR (100),
+pais_de_origem VARCHAR (100),
+
+PRIMARY KEY (id)
+);
+SELECT * FROM  tb_produtoss;
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Teclado", 50, 3, "Multilaser", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Televisão",1200, 3, "	SAMSUNG", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Camiseta", 30, 3, "Marca  Genérica", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Placa de vídeo", 1500, 3, "AMD", "China");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Notebook", 2200, 3, "DELL", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Headset", 2000, 3, "Bose", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Mouse", 70, 3, "Multilaser", "Brasil");
+
+INSERT INTO tb_produtoss (nome, preco,  estoque, fabricante, pais_de_origem)
+VALUES ("Cooler", 200, 3, "COOLER MASTER", "Brasil");
+
+SELECT * FROM tb_produtoss WHERE preco>500;
+SELECT * FROM tb_produtoss WHERE preco<500;
+
+EXERCICÍO 3
+
+CREATE DATABASE db_escola;
+USE db_escola;
+CREATE TABLE tb_estudantes (
+id BIGINT AUTO_INCREMENT,
+nome VARCHAR (100),
+matricula INT,
+turma VARCHAR (20),
+nota INT,
+idade INT,
+
+PRIMARY KEY (id)
+);
+SELECT * FROM tb_estudantes;
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Angela", 255, "2-B","6", 16);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Pedro", 245, "1-B","8", 15);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Isabela", 275, "2-B","7", 16);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Alexandre", 145, "2-B","3", 16);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Jefferson", 247, "2-B","10", 16);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Gabriel", 295, "2-B","5", 16);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("Yasmim", 275, "2-B","9", 14);
+
+INSERT INTO tb_estudantes (nome, matricula, turma, nota, idade)
+VALUES  ("João", 295, "2-B","8", 16);
+
+SELECT * FROM tb_estudantes WHERE nota>7;
+SELECT * FROM tb_estudantes WHERE nota<7;
