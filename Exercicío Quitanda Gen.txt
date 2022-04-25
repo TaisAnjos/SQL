@@ -1,0 +1,40 @@
+Exercicío Quitanda Gen
+
+CREATE DATABASE db_quitanda_gen;
+USE db_quitanda_gen;
+CREATE TABLE tb_produtos (
+id BIGINT AUTO_INCREMENT,
+produto VARCHAR (115),
+preco DECIMAL,
+fabricante VARCHAR (155),
+tamanho VARCHAR (255),
+estoque INT,
+
+PRIMARY KEY (id)
+);
+CREATE TABLE tb_categoria (
+id BIGINT AUTO_INCREMENT,
+categoria VARCHAR (115),
+
+PRIMARY KEY (id)
+);
+ALTER TABLE tb_produtos ADD FOREIGN KEY (tb_categoria) REFERENCES tb_categoria (id);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("laranja", 15.00, "produtor de laranja", 15.00, 2);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("chocolate", 20.00, "marca de chocolate", 20.00, 1);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("bolo", 25.00, "marca de doces", 5.00, 1);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("tomate", 15.00, "produtor de tomate", 15.00, 2);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("ovos", 12.50, "produtor de ovos", 17.00, 5);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("carvão", 13.50, "produtor de carvão", 16.00, 4);
+INSERT INTO tb_produtos (produto, preco, fabricante, estoque, tb_categoria) VALUES ("abóbora", 13.50, "produtor de abóbora", 18.00, 3);
+
+INSERT INTO tb_categoria (categoria) VALUES ("Doces");
+INSERT INTO tb_categoria (categoria) VALUES ("Frutas");
+INSERT INTO tb_categoria (categoria) VALUES ("Legumes");
+INSERT INTO tb_categoria (categoria) VALUES ("Diversos");
+INSERT INTO tb_categoria (categoria) VALUES ("Frescos");
+
+SELECT produto FROM tb_produtos;
+SELECT * FROM tb_categoria;
+SELECT produto, preco FROM tb_produtos WHERE preco>50;
+SELECT produto FROM tb_produtos WHERE produto LIKE '%a%';
+SELECT * FROM  tb_produtos INNER JOIN tb_categoria ON tb_produtos.tb_categoria = tb_categoria.id;
