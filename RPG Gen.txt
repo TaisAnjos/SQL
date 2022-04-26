@@ -1,0 +1,49 @@
+RPG GEN
+
+CREATE DATABASE db_generation_game_online;
+USE db_generation_game_online;
+CREATE TABLE tb_classes (
+id_classes BIGINT AUTO_INCREMENT,
+mago VARCHAR (155),
+guerreiro VARCHAR (155),
+assasino VARCHAR (155),
+
+PRIMARY KEY (id_classes)
+);
+CREATE TABLE tb_personagens (
+id_personagens BIGINT AUTO_INCREMENT,
+nickname VARCHAR (155),
+genero VARCHAR (155),
+titulo VARCHAR (155),
+nivel INT,
+classes_id BIGINT,
+
+PRIMARY KEY (id_personagens),
+FOREIGN KEY (classes_id) REFERENCES tb_classes (id_classes)
+);
+SELECT * FROM tb_classes;
+INSERT INTO tb_classes (mago, guerreiro, assasino) VALUES ("Mago das Chamas Infernais", "Barbáro", "Lamina da noite");
+INSERT INTO tb_classes (mago, guerreiro, assasino) VALUES ("Mago da Nevasca", "Guerreiro Arcano do Fogo", "Lamina Arcana");
+INSERT INTO tb_classes (mago, guerreiro, assasino) VALUES ("Mago do Tornado", "Paladino", "Lamina fanstasmagorica");
+INSERT INTO tb_classes (mago, guerreiro, assasino) VALUES ("Mago do Terremoto", "Guerreiro Arcano do Terremoto", "Ladrão");
+INSERT INTO tb_classes (mago, guerreiro, assasino) VALUES ("Mago da Tempestade", "Guerreiro Arcano do Tornado", "Lamina envenenada");
+
+SELECT * FROM tb_personagens;
+ALTER TABLE tb_personagens ADD COLUMN poder_de_atq DOUBLE;
+ALTER TABLE tb_personagens ADD COLUMN defesa DOUBLE;
+DELETE FROM tb_personagens WHERE id_personagens = 1;
+
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("Hellblazer", "Masculino","Mestre dos Magos",89, 2000, 450,1);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("FireBoy", "Masculino","Aprendiz",5, 150, 100,1);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("IceQueen", "Feminino","Mestre dos Magos",95, 2.500, 500,2);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("Dark", "Masculino","Lamina Sangrenta",85, 3000, 400,1);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("PowerGirl", "Paladino","Guerreiro Sagrado",96, 3000, 500, 3);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("Razer", "Masculino","Aprendiz",10, 200, 100,5);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("Tartan", "Masculino","Aprendiz",2, 200, 150,1);
+INSERT INTO tb_personagens (nickname, genero, titulo, nivel, poder_de_atq, defesa, classes_id) VALUES ("DarkQueen", "Feminino","Lamina Sangrenta",94, 3000, 500,2);
+
+SELECT * FROM tb_personagens WHERE poder_de_atq > 2000;
+SELECT * FROM tb_personagens WHERE defesa BETWEEN 1000 AND 2000;
+SELECT * FROM tb_personagens WHERE nickname LIKE '%c%';
+SELECT * FROM tb_personagens INNER JOIN tb_classes ON tb_personagens.classes_id = tb_classes.id_classes;
+SELECT nickname,genero,titulo,nivel,poder_de_atq,defesa,mago FROM tb_personagens INNER JOIN tb_classes ON tb_personagens.classes_id = tb_classes.id_classes WHERE mago LIKE "%mago%";
